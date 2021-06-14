@@ -8,16 +8,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          {/* Not exactly required, but this is the PWA primary color */}
-          {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
-          {/* <link
-            rel="preload"
-            href="../public/fonts/CarRepair-Regular.woff"
-            as="font"
-            crossOrigin=""
-          /> */}
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

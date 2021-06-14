@@ -92,18 +92,20 @@ const ContactInfo = () => {
             <Typography className={classes.heading}>OPENING HOURS</Typography>
             <div className={classes.workingDays}>
               <div>
-                {pageData.openingHoursCollection.items.map((item, id) => (
-                  <Typography className={classes.text} key={id}>
-                    {item.days}
-                  </Typography>
-                ))}
+                <Typography className={classes.text}>Weekdays</Typography>
+                <Typography className={classes.text}>Saturday</Typography>
+                <Typography className={classes.text}>Sunday</Typography>
               </div>
               <div className={classes.hoursContainer}>
-                {pageData.openingHoursCollection.items.map((item, id) => (
-                  <Typography className={classes.muted} key={id} noWrap>
-                    {item.openingHours}
-                  </Typography>
-                ))}
+                <Typography className={classes.muted} noWrap>
+                  {pageData.openingHours.weekdays}
+                </Typography>{" "}
+                <Typography className={classes.muted} noWrap>
+                  {pageData.openingHours.saturday}
+                </Typography>{" "}
+                <Typography className={classes.muted} noWrap>
+                  {pageData.openingHours.sunday}
+                </Typography>
               </div>
             </div>
           </Grid>

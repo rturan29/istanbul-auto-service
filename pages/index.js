@@ -53,8 +53,6 @@ export default function appHome({ pageData }) {
         </main>
         <Footer />
       </PageDataContext.Provider>
-
-      {console.log(pageData)}
     </React.Fragment>
   );
 }

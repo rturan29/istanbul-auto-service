@@ -31,11 +31,10 @@ query{
       advantage
     }
   }
-  openingHoursCollection{
-    items{
-    	days
-      openingHours
-    }
+  openingHours(id:"7EGGv6lzqu52SH8QpCU5Vx"){
+    weekdays
+    saturday
+    sunday
   }
   services(id:"2lgiTHE27jAIPhV6W8CPrC"){
     title
@@ -56,12 +55,13 @@ query{
     title
     about{json}
   }
-  principleCardCollection{
-    items{
-      cardTitle
-      cardBody{json}
-      iconTag
-    }
+  principleCard(id:"69phSfahRFmaAwz38XSSBW"){
+    customerHappinessTitle
+    customerHappinessBody
+    trustworthinessBody
+    trustworthinessTitle
+    honorTitle
+    honorBody
   }
   contactText(id:"6heivoJrruZWQWDQQy3Ofd"){
     motto

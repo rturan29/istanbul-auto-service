@@ -77,30 +77,28 @@ const useStyles = makeStyles(theme => ({
   bold: { fontWeight: "bolder" },
 }));
 
-// const principles = [
-//   {
-//     title: "Principle 1",
-//     description:
-//       "These usually are sophisticated analytical tools that allow you tolikeds dissect",
-//     icon: <SentimentSatisfiedRoundedIcon fontSize="inherit" />,
-//   },
-//   {
-//     title: "Principle 2",
-//     description:
-//       "These usually are sophisticated analytical tools that allow you tolikeds dissect",
-//     icon: <VerifiedUserRoundedIcon fontSize="inherit" />,
-//   },
-//   {
-//     title: "Principle 3",
-//     description:
-//       "These usually are sophisticated analytical tools that allow you tolikeds dissect",
-//     icon: <FlareRoundedIcon fontSize="inherit" />,
-//   },
-// ];
+const principles = cardInfo => [
+  {
+    title: cardInfo.customerHappinessTitle,
+    description: cardInfo.customerHappinessBody,
+    icon: <SentimentSatisfiedRoundedIcon fontSize="inherit" />,
+  },
+  {
+    title: cardInfo.trustworthinessTitle,
+    description: cardInfo.trustworthinessBody,
+    icon: <VerifiedUserRoundedIcon fontSize="inherit" />,
+  },
+  {
+    title: cardInfo.honorTitle,
+    description: cardInfo.honorBody,
+    icon: <FlareRoundedIcon fontSize="inherit" />,
+  },
+];
 
 const About = () => {
   const classes = useStyles();
   const [pageData] = React.useContext(PageDataContext);
+  const principleCards = principles(pageData.principleCard);
 
   const Card = ({ title, icon, description, ...rest }) => (
     <div className={classes.cardContainer} {...rest}>
@@ -138,21 +136,13 @@ const About = () => {
               {documentToReactComponents(pageData.about.about.json)}
             </Typography>
           </Grid>
-          {pageData.principleCardCollection.items.map((principle, index) => {
-            const IconTag = () => {
-              const CostumTag = principle.iconTag;
-              return <CostumTag fontSize="inherit" />;
-            };
-
-            console.log(<IconTag />);
+          {principleCards.map((principle, index) => {
             return (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
-                  title={principle.cardTitle}
-                  description={documentToReactComponents(
-                    principle.cardBody.json
-                  )}
-                  icon={IconTag()}
+                  title={principle.title}
+                  description={principle.description}
+                  icon={principle.icon}
                   data-aos="zoom-in-up"
                   data-aos-delay={300 * index}
                 />
