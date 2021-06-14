@@ -6,6 +6,7 @@ import About from "../components/Views/About";
 import ContactUs from "../components/Views/ContactUs";
 import Footer from "../components/Views/Footer";
 import AOS from "aos";
+import "../node_modules/aos/dist/aos.css";
 import Services from "../components/Views/Services";
 import { PageDataContext } from "../components/pageDataContext";
 

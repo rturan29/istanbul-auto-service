@@ -139,8 +139,12 @@ const About = () => {
             </Typography>
           </Grid>
           {pageData.principleCardCollection.items.map((principle, index) => {
-            const IconTag = principle.iconTag;
-            console.log(IconTag);
+            const IconTag = () => {
+              const CostumTag = principle.iconTag;
+              return <CostumTag fontSize="inherit" />;
+            };
+
+            console.log(<IconTag />);
             return (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
@@ -148,9 +152,7 @@ const About = () => {
                   description={documentToReactComponents(
                     principle.cardBody.json
                   )}
-                  icon={React.createElement(principle.iconTag, {
-                    fontSize: "inherit",
-                  })}
+                  icon={IconTag()}
                   data-aos="zoom-in-up"
                   data-aos-delay={300 * index}
                 />

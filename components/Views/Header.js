@@ -10,7 +10,6 @@ import clsx from "clsx";
 import { Link } from "react-scroll";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from "@material-ui/icons/Phone";
-import logo from "../../assets/images/logo2.png";
 import { animateScroll as scroll } from "react-scroll";
 import { PageDataContext } from "../pageDataContext";
 

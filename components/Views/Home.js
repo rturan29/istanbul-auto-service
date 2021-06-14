@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-// import backgroundImage from "../../assets/images/homeBackground.png";
 import clsx from "clsx";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ContactInfo from "./ContactInfo";
