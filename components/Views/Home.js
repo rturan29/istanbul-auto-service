@@ -176,7 +176,7 @@ const Home = () => {
                 className={clsx(classes.text, classes.heightLight)}
                 display="inline"
               >
-                {"Get in touch "}
+                {pageData.hero.contactText}
               </Typography>
               <NavigateNextIcon className={classes.animatedArrow} />
             </div>

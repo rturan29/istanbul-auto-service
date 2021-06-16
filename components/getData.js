@@ -19,7 +19,7 @@ query{
     motto
     title
     body
-    contactMotto
+    contactText
     heroImage{
       title
       fileName
@@ -53,16 +53,16 @@ query{
   }
   about(id:"1WYqw6tfGPpfnMtwTPbVho"){
     title
-    about{json}
+    body{json}
+    principleCardsCollection {
+      items {
+        title
+        body
+        iconTag
+      }
+    }
   }
-  principleCard(id:"69phSfahRFmaAwz38XSSBW"){
-    customerHappinessTitle
-    customerHappinessBody
-    trustworthinessBody
-    trustworthinessTitle
-    honorTitle
-    honorBody
-  }
+
   contactText(id:"6heivoJrruZWQWDQQy3Ofd"){
     motto
     phoneText

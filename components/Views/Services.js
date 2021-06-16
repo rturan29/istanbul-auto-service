@@ -3,7 +3,6 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ServiceCard from "../ServiceCard";
 import Icon from "../Icons/Icon";
-import mechanicsImage from "../../assets/images/services.jpg";
 import { PageDataContext } from "../pageDataContext";
 
 const outerFunc = URL => {
