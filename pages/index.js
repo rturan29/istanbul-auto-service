@@ -10,15 +10,6 @@ import "../node_modules/aos/dist/aos.css";
 import Services from "../components/Views/Services";
 import { PageDataContext } from "../components/pageDataContext";
 
-export async function getStaticProps() {
-  const { pageData } = await getDataFromContentful();
-
-  return {
-    props: { pageData },
-    revalidate: 1,
-  };
-}
-
 export default function appHome({ pageData }) {
   const [pageDataState, setpageDataState] = React.useState(pageData);
   const [isSticky, setSticky] = React.useState(false);
@@ -42,17 +33,24 @@ export default function appHome({ pageData }) {
   };
 
   return (
-    <React.Fragment>
-      <PageDataContext.Provider value={[pageDataState, setpageDataState]}>
-        <Navbar sticky={isSticky} />
-        <main ref={stickyRef}>
-          <Home />
-          <Services />
-          <About />
-          <ContactUs />
-        </main>
-        <Footer />
-      </PageDataContext.Provider>
-    </React.Fragment>
+    <PageDataContext.Provider value={[pageDataState, setpageDataState]}>
+      <Navbar sticky={isSticky} />
+      <main ref={stickyRef}>
+        <Home />
+        <Services />
+        <About />
+        <ContactUs />
+      </main>
+      <Footer />
+    </PageDataContext.Provider>
   );
+}
+
+export async function getStaticProps() {
+  const { pageData } = await getDataFromContentful();
+
+  return {
+    props: { pageData },
+    revalidate: 1,
+  };
 }

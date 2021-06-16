@@ -88,7 +88,6 @@ export default async function getDataFromContentful() {
 
     const json = await response.json();
 
-    // const { pageData, errors } = await data;
     const pageData = await json.data;
 
     return await { pageData };
