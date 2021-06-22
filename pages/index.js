@@ -1,4 +1,3 @@
-import getDataFromContentful from "../components/getData";
 import React from "react";
 import Navbar from "../components/Views/Header";
 import Home from "../components/Views/Home";
@@ -9,8 +8,11 @@ import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
 import Services from "../components/Views/Services";
 import { PageDataContext } from "../components/pageDataContext";
+import getData from "../contentful/getData";
+import { pageQuery } from "../contentful/query";
+import PreviewBar from "../components/Views/PreviewBar";
 
-export default function appHome({ pageData }) {
+export default function appHome({ pageData, preview }) {
   const [pageDataState, setpageDataState] = React.useState(pageData);
   const [isSticky, setSticky] = React.useState(false);
   const stickyRef = React.useRef(null);
@@ -34,6 +36,8 @@ export default function appHome({ pageData }) {
 
   return (
     <PageDataContext.Provider value={[pageDataState, setpageDataState]}>
+      {preview ? <PreviewBar preview={preview} /> : ""}
+
       <Navbar sticky={isSticky} />
       <main ref={stickyRef}>
         <Home />
@@ -46,11 +50,12 @@ export default function appHome({ pageData }) {
   );
 }
 
-export async function getStaticProps() {
-  const { pageData } = await getDataFromContentful();
+export async function getStaticProps({ preview = false }) {
+  const pageData = await getData(pageQuery(preview), preview);
+  // const items = await getContentfulData();
 
   return {
-    props: { pageData },
+    props: { pageData, preview },
     revalidate: 1,
   };
 }
