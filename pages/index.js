@@ -8,8 +8,8 @@ import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
 import Services from "../components/Views/Services";
 import { PageDataContext } from "../components/pageDataContext";
-import getData from "../contentful/getData";
-import { pageQuery } from "../contentful/query";
+import getData from "../lib/getData";
+import { pageQuery } from "../lib/query";
 import PreviewBar from "../components/Views/PreviewBar";
 
 export default function appHome({ pageData, preview }) {
@@ -51,8 +51,8 @@ export default function appHome({ pageData, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const pageData = await getData(pageQuery(preview), preview);
-  // const items = await getContentfulData();
+  const json = await getData(pageQuery(preview), preview);
+  const pageData = await json.data;
 
   return {
     props: { pageData, preview },
