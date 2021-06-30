@@ -132,7 +132,10 @@ const ContactUs = () => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ContactForm data-aos="fade-left" />
+            <ContactForm
+              data-aos="fade-left"
+              email={pageData.companyInfo.companyEMail}
+            />
           </Grid>
         </Grid>
       </Container>
